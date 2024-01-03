@@ -201,10 +201,11 @@ header {
     margin-right: 25px;
 }
 
-.no-result {
+.gallery .no-result {
     width: 100%;
     text-align: center;
-    margin-top: 50px;
+    margin-top: 70px;
+    font-size: 20px;
 }
 
 /*-------------------------*/

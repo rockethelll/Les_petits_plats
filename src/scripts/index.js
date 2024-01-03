@@ -1,7 +1,7 @@
-import { recipes } from '../data/recipes'
-import Card from './templates/Card'
-import filterByName from './utils/Filter'
-import { cleanSearch, resetFilter } from './utils/cleanInputSearch'
+import { recipes } from '../data/recipes.js'
+import Card from './templates/Card.js'
+import filterByName from './utils/Filter.js'
+import { cleanSearch, resetFilter } from './utils/cleanInputSearch.js'
 
 const btnReset = document.querySelector('.clean-search')
 btnReset.addEventListener('click', resetFilter)

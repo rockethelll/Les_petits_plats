@@ -1,4 +1,4 @@
-import Card from '../templates/Card'
+import Card from '../templates/Card.js'
 
 export const createTotalElement = (count) => {
   const total = document.createElement('h2')
