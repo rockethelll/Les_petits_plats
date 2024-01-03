@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+@import 'reset.css';
+
+main {
+    margin: 0 100px;
+}
+
+/*--------*/
+/* HEADER */
+/*--------*/
+header {
+    background: url("/assets/images/banner.webp") no-repeat center center/cover;
+    height: 670px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header__logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    height: 10dvh;
+    padding-left: 5dvw;
+}
+
+.header__logo img:first-child {
+    width: 180px;
+    height: 25px;
+    padding-right: 10px;
+}
+
+.header__title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    width: 55%;
+    height: 132px;
+    color: var(--color-tertiary);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.header__search {
+    width: 60%;
+    height: 70px;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.header__search input {
+    width: 90%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding-right: 10px;
+}
+
+.header__search input::placeholder {
+    color: var(--color-secondary);
+}
+
+.header__search .clean-search {
+    margin-right: 25px;
+    display: none;
+    cursor: pointer;
+}
+
+.header__search button {
+    width: 50px;
+    height: 50px;
+    background: #000;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*--------*/
+/* FILTERS */
+/*--------*/
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    height: 55px;
+    position: relative;
+}
+
+.filters .dropdown {
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    width: 195px;
+    height: 55px;
+    border-radius: 11px;
+    background: var(--color-white);
+    font-weight: 500;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+}
+
+.dropdown__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 11px;
+    background: var(--color-white);
+    font-weight: 500;
+    padding: 17px 16px;
+}
+
+.dropdown.show {
+    height: 315px;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown:not(.show) {
+    transition: all 0.3s ease-in-out;
+}
+
+.dropdown__button .chevron-up {
+    display: none;
+}
+
+.dropdown-items {
+    list-style: none;
+    border: none;
+    padding: 0;
+}
+.dropdown-items label {
+    display: none;
+}
+
+.dropdown-search {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 163px;
+    height: 40px;
+    margin-bottom: 20px;;
+    border: #C6C6C6 1px solid;
+    border-radius: 2px;
+    margin-left: 16px;
+}
+
+.dropdown-search input {
+    border: none;
+    width: 90px;
+    margin: 5px;
+    color: #7A7A7A;
+}
+
+.dropdown-search input:focus {
+    outline: none;
+}
+
+.dropdown-search .clean-icon {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+}
+
+.dropdown-search .search-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    filter: invert(100%);
+}
+
+.dropdown-items li:not(:first-child) {
+    padding: 6px 0;
+}
+
+.dropdown-items li:hover:not(:first-child),
+.dropdown-items li a:hover {
+    background: var(--color-tertiary);
+}
+
+.total-recipes {
+    font-size: 21px;
+    margin-right: 25px;
+}
+
+.no-result {
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/*-------------------------*/
+/* Items selected on filter*/
+/*-------------------------*/
+.selected-items {
+    width: 100%;
+}
+.selected-items .row {
+    display: flex;
+    align-items: center;
+}
+
+.selected-items .row > * {
+    width: auto;
+}
+
+.selected-items .list-items {
+    /*padding-left: 0;*/
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
+.selected-items .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 17px 18px;
+    background: var(--color-tertiary);
+    border-radius: 10px;
+    height: 53px;
+    width: auto
+}
+.selected-items .item p {
+    margin: 0;
+    padding-right: 60px;
+    font-size: 14px;
+}
+
+.selected-items .item svg {
+    width: 10px;
+    height: 10px;
+    cursor: pointer;
+    stroke: black;
+}
+
+/*------*/
+/* Cards*/
+/*------*/
+main .container-fluid {
+    padding: 0;
+}
+
+.col {
+    width: 23.75rem;
+    padding: 0;
+}
+
+.card {
+    margin-bottom: 66px;
+    border-radius: 21px !important;
+    width: 23.75rem;
+    box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
+}
+
+.card-img-top {
+    border-radius: 21px 21px 0 0 !important;
+    height: 250px;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 21px;
+    right: 22px;
+    background: var(--color-tertiary);
+    width: 63px;
+    height: 26px;
+    font-size: 12px;
+    border-radius: 14px !important;
+}
+
+.card .card-body {
+    padding: 0 30px 30px;
+}
+
+.card .card-title {
+    font-size: 18px;
+    margin: 30px 0;
+}
+
+.recette,
+.ingredients {
+    color: var(--color-secondary);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card .card-text {
+    font-size: 14px;
+    margin-bottom: 32px;
+    height: 80px;
+    white-space: break-spaces;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ingredient-quantity {
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+.ingredient-quantity p {
+    font-size: 14px;
+    margin-bottom: 0;
+}
+
+.ingredient-quantity .quantity {
+    color: var(--color-secondary);
+}
+
+/*----------------*/
+/* MEDIA QUERIES */
+/*----------------*/
+@media screen and (max-width: 1024px) {
+    main {
+        margin: 0 70px;
+    }
+}
+
+@media screen and (max-width: 990px) {
+    .card {
+        width: 40rem;
+    }
+
+    .card .card-text {
+        margin-bottom: 24px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        margin: 0 40px;
+    }
+
+    header {
+        height: 60vh;
+    }
+
+    .header__title {
+        width: 80%;
+    }
+
+    .header__search {
+        width: 80%;
+    }
+
+    .card {
+        width: 30rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        margin: 0 20px;
+    }
+
+    .header__title {
+        width: 90%;
+    }
+
+    .header__search {
+        width: 90%;
+    }
+
+    .header__search input::placeholder {
+        font-size: 0.8rem;
+    }
+
+    .card .card-title {
+        margin: 15px 0;
+    }
+
+    .card .card-body {
+        padding: 0 20px 20px;
+    }
+
+    .ingredient-quantity {
+        margin-bottom: 10px;
+    }
+}
