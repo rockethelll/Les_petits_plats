@@ -1,10 +1,12 @@
-const dropdownBtn = document.getElementById('dropdown-button')
-const dropdown = document.querySelector('.dropdown')
+const dropdownBtns = document.querySelectorAll('.dropdown__button')
 
-dropdownBtn.addEventListener('click', () => {
-  const chevronUp = document.querySelector('.chevron-up')
-  const chevronDown = document.querySelector('.chevron-down')
-  chevronUp.classList.toggle('d-block')
-  chevronDown.classList.toggle('d-none')
-  dropdown.classList.toggle('show')
+dropdownBtns.forEach((dropdownBtn) => {
+  const dropdown = document.querySelector('.handle-dropdown')
+  dropdownBtn.addEventListener('click', () => {
+    const chevronUp = document.querySelector('.chevron-up')
+    const chevronDown = document.querySelector('.chevron-down')
+    chevronUp.classList.toggle('d-block')
+    chevronDown.classList.toggle('d-none')
+    dropdown.classList.toggle('show')
+  })
 })

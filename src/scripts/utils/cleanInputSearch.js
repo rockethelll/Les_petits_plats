@@ -1,4 +1,4 @@
-import { updateTotalRecipes } from './Filter.js'
+import { updateTotalRecipes } from './mainFilter.js'
 import { recipes } from '../../data/recipes.js'
 import { displayCard } from '../index.js'
 

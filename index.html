@@ -28,29 +28,31 @@
     </div>
 </header>
 <main>
-    <section class="filters">
+    <section class="filters row">
         <div class="filters-container">
-            <div class="dropdown">
-                <button class="dropdown__button" type="button" id="dropdown-button">
-                    Ingredients
-                    <img class="chevron-up" src="./assets/icons/chevron-up-solid.svg" alt="chevron up">
-                    <img class="chevron-down" src="./assets/icons/chevron-down-solid.svg" alt="chevron down">
-                </button>
+            <div class="filter ingredients-container"></div>
+            <div class="filter ustensils-container"></div>
+<!--            <div class="dropdown">-->
+<!--                <button class="dropdown__button" type="button">-->
+<!--                    Ingredients-->
+<!--                    <img class="chevron-up" src="./assets/icons/chevron-up-solid.svg" alt="chevron up">-->
+<!--                    <img class="chevron-down" src="./assets/icons/chevron-down-solid.svg" alt="chevron down">-->
+<!--                </button>-->
 
-                <ul class="dropdown-items">
-                    <li>
-                        <div class="dropdown-search">
-                            <label for="dropdownSearch"></label>
-                            <input type="search" id="dropdownSearch">
-                            <img class="clean-icon" src="./assets/icons/close.svg" alt="Clean search field">
-                            <img class="search-icon" src="./assets/icons/search.svg" alt="Search icon">
-                        </div>
-                    </li>
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                    <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-            </div>
+<!--                <ul class="dropdown-items">-->
+<!--                    <li>-->
+<!--                        <div class="dropdown-search">-->
+<!--                            <label for="dropdownSearch"></label>-->
+<!--                            <input type="search" id="dropdownSearch">-->
+<!--                            <img class="clean-icon" src="./assets/icons/close.svg" alt="Clean search field">-->
+<!--                            <img class="search-icon" src="./assets/icons/search.svg" alt="Search icon">-->
+<!--                        </div>-->
+<!--                    </li>-->
+<!--                    <li><a class="dropdown-item" href="#">Action</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Another action</a></li>-->
+<!--                    <li><a class="dropdown-item" href="#">Something else here</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
         </div>
         <h2 class="total-recipes"></h2>
     </section>
@@ -74,12 +76,10 @@
             </div>
         </div>
     </div>
-
-
-    <section class="container-fluid gallery row justify-content-center justify-content-lg-between"></section>
+    <section class="container-fluid gallery row"></section>
 </main>
 <script type="module" src="./src/scripts/index.js"></script>
-<script type="module" src="./src/scripts/utils/Filter.js"></script>
+<script type="module" src="./src/scripts/utils/mainFilter.js"></script>
 <script type="module" src="./src/scripts/templates/DropdownFilter.js"></script>
 </body>
 </html>

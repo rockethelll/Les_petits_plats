@@ -16,6 +16,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    margin-bottom: 20px;
 }
 
 .header {
@@ -95,16 +96,39 @@ header {
 /* FILTERS */
 /*--------*/
 
-.filters {
+section.filters {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 20px 0;
     height: 55px;
-    position: relative;
 }
 
-.filters .dropdown {
+section.filters .filters-container {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    width: 70%;
+}
+
+.filters-container .filter {
+    margin-right: 50px;
+}
+
+.filters .total-recipes {
+    width: 130px;
+    font-size: 21px;
+    position: absolute;
+    right: 9dvw;
+}
+
+.filters-container.ingredients-container,
+.filters-container.ustensils-container {
+    width: 195px;
+    height: 55px;
+}
+
+.filters .handle-dropdown {
     display: flex;
     flex-direction: column;
     z-index: 0;
@@ -114,8 +138,7 @@ header {
     background: var(--color-white);
     font-weight: 500;
     overflow: hidden;
-    position: absolute;
-    top: 0;
+    position: relative;
 }
 
 .dropdown__button {
@@ -128,13 +151,13 @@ header {
     padding: 17px 16px;
 }
 
-.dropdown.show {
+.filters .handle-dropdown.show {
     height: 315px;
     z-index: 10;
     transition: all 0.3s ease-in-out;
 }
 
-.dropdown:not(.show) {
+.handle-dropdown:not(.show) {
     transition: all 0.3s ease-in-out;
 }
 
@@ -146,7 +169,9 @@ header {
     list-style: none;
     border: none;
     padding: 0;
+    overflow-y: auto;
 }
+
 .dropdown-items label {
     display: none;
 }
@@ -196,11 +221,6 @@ header {
     background: var(--color-tertiary);
 }
 
-.total-recipes {
-    font-size: 21px;
-    margin-right: 25px;
-}
-
 .gallery .no-result {
     width: 100%;
     text-align: center;
@@ -224,7 +244,6 @@ header {
 }
 
 .selected-items .list-items {
-    /*padding-left: 0;*/
     margin-right: 30px;
     margin-bottom: 20px;
 }
@@ -252,9 +271,9 @@ header {
     stroke: black;
 }
 
-/*------*/
-/* Cards*/
-/*------*/
+/*-------*/
+/* Cards */
+/*-------*/
 main .container-fluid {
     padding: 0;
 }
@@ -267,7 +286,6 @@ main .container-fluid {
 .card {
     margin-bottom: 66px;
     border-radius: 21px !important;
-    width: 23.75rem;
     box-shadow: 0 4px 34px 30px rgba(0, 0, 0, 0.04);
 }
 
@@ -338,10 +356,6 @@ main .container-fluid {
 }
 
 @media screen and (max-width: 990px) {
-    .card {
-        width: 40rem;
-    }
-
     .card .card-text {
         margin-bottom: 24px;
     }
@@ -362,10 +376,6 @@ main .container-fluid {
 
     .header__search {
         width: 80%;
-    }
-
-    .card {
-        width: 30rem;
     }
 }
 

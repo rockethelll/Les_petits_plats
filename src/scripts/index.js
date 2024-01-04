@@ -1,12 +1,17 @@
 import { recipes } from '../data/recipes.js'
 import Card from './templates/Card.js'
-import filterByName from './utils/Filter.js'
+import filterByName from './utils/mainFilter.js'
 import { cleanSearch, resetFilter } from './utils/cleanInputSearch.js'
+import {getUniqueAndSortedAppliances, createDropdown, getUniqueAndSortedIngredients} from "./templates/filterByTag.js";
 
 const btnReset = document.querySelector('.clean-search')
 btnReset.addEventListener('click', resetFilter)
 
 const gallerySection = document.querySelector('.gallery')
+
+const ingredientsContainer = document.querySelector('.ingredients-container');
+const ustensilsContainer = document.querySelector('.ustensils-container');
+
 
 export async function displayCard (data) {
   gallerySection.innerHTML = ''
@@ -16,7 +21,7 @@ export async function displayCard (data) {
     const cardElement = card.generateElement()
 
     const cardContainer = document.createElement('div')
-    cardContainer.classList.add('col-auto', 'd-flex', 'justify-content-between')
+    cardContainer.classList.add('col-12', 'col-md-6', 'col-lg-4', 'd-flex')
     cardContainer.appendChild(cardElement)
 
     gallerySection.appendChild(cardContainer)
@@ -28,6 +33,8 @@ const init = async () => {
   displayCard(recipes)
   cleanSearch()
   filterByName(recipes)
+  createDropdown('Ingredients', getUniqueAndSortedIngredients(recipes), ingredientsContainer)
+  createDropdown('Appareils', getUniqueAndSortedAppliances(recipes), ustensilsContainer)
 }
 
 init()

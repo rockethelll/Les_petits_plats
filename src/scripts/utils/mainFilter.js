@@ -58,7 +58,8 @@ export default function filterByName (recipes) {
     if (filteredRecipes.length === 0) {
       const noResult = document.createElement('div')
       noResult.classList.add('no-result')
-      noResult.textContent = 'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.'
+      noResult.textContent = 'Aucune recette ne correspond à votre critère… vous pouvez rechercher « tarte aux pommes' +
+        ' », « poisson », etc.'
       gallerySection.appendChild(noResult)
     } else {
       // Display sorted recipes
