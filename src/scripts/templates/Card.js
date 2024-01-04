@@ -1,3 +1,5 @@
+import {recipes} from "../../data/recipes.js";
+
 export default class Card {
   constructor ({
                  id, image, name, servings, ingredients, time, description, appliance, ustensils
@@ -14,6 +16,9 @@ export default class Card {
   }
 
   generateElement () {
+    const cardContainer = document.createElement('div')
+    cardContainer.classList.add('col-12', 'col-md-6', 'col-lg-4', 'd-flex')
+    
     const cardElement = document.createElement('div')
     cardElement.classList.add('card')
     cardElement.setAttribute('data-id', `${this.id}`)
@@ -74,7 +79,15 @@ export default class Card {
     cardElement.appendChild(cardImage)
     cardElement.appendChild(badgeSpan)
     cardElement.appendChild(cardBody)
+    cardContainer.appendChild(cardElement)
 
     return cardElement
   }
 }
+
+const gallerySection = document.querySelector('.gallery');
+recipes.forEach(recipe => {
+  const card = new Card(recipe);
+  const recipeCard = card.generateElement();
+  gallerySection.appendChild(recipeCard);
+})
