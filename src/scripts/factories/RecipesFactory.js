@@ -104,7 +104,7 @@ export class RecipesFactory {
   }
 }
 
-const gallerySection = document.querySelector('.gallery');
+const gallerySection = document.querySelector('.recipes-gallery');
 recipes.forEach((recipe) => {
   const card = new RecipesFactory(recipe);
   const recipeCard = card.generateElement();

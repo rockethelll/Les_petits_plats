@@ -171,11 +171,18 @@ header {
   margin-right: 25px;
 }
 
-.gallery .no-result {
+.recipes-gallery .no-result {
   width: 100%;
   text-align: center;
   margin-top: 70px;
   font-size: 20px;
+}
+.errorMessage {
+  font-family: var(--color-secondary);
+  font-size: 22px;
+  margin-bottom: 40px;
+  width: 1440px;
+  text-align: center;
 }
 
 /*-------*/

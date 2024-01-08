@@ -1,5 +1,6 @@
 import { recipes } from '../data/recipes.js';
 import { RecipesFactory } from './factories/RecipesFactory.js';
+import { searchRecipes } from './utils/mainFilter.js';
 import { dropdownFilter } from './templates/DropdownFilter.js';
 import { cleanSearch, resetFilter } from './utils/cleanInputSearch.js';
 

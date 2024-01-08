@@ -1,6 +1,6 @@
 import { recipes } from '../../data/recipes.js';
 
-const inputSearch = document.getElementById('search');
+const inputSearch = document.getElementById('main-search');
 const cleanSearchBtn = document.querySelector('.clean-search');
 const filtersSection = document.querySelector('.filters');
 

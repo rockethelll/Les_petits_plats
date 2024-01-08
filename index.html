@@ -35,10 +35,10 @@
         </div>
       </div>
       <div class="header__search">
-        <label for="search"></label>
+        <label for="main-search"></label>
         <input
           type="text"
-          id="search"
+          id="main-search"
           placeholder="Rechercher une recette, un ingrédient, ..."
         />
         <img
@@ -72,15 +72,10 @@
                 alt="chevron down"
               />
             </button>
-            <div class="dropdown-search show">
+            <div class="dropdown-search">
               <div class="input-search">
                 <label for="dropdownSearchIngredients"></label>
                 <input type="search" id="dropdownSearchIngredients" />
-                <!--              <img-->
-                <!--                class="clean-icon"-->
-                <!--                src="./assets/icons/close.svg"-->
-                <!--                alt="Clean search field"-->
-                <!--              />-->
                 <img
                   class="search-icon"
                   src="./assets/icons/search.svg"
@@ -114,11 +109,6 @@
               <div class="input-search">
                 <label for="dropdownSearchAppareils"></label>
                 <input type="search" id="dropdownSearchAppareils" />
-                <!--              <img-->
-                <!--                class="clean-icon"-->
-                <!--                src="./assets/icons/close.svg"-->
-                <!--                alt="Clean search field"-->
-                <!--              />-->
                 <img
                   class="search-icon"
                   src="./assets/icons/search.svg"
@@ -152,11 +142,6 @@
               <div class="input-search">
                 <label for="dropdownSearchUstensils"></label>
                 <input type="search" id="dropdownSearchUstensils" />
-                <!--              <img-->
-                <!--                class="clean-icon"-->
-                <!--                src="./assets/icons/close.svg"-->
-                <!--                alt="Clean search field"-->
-                <!--              />-->
                 <img
                   class="search-icon"
                   src="./assets/icons/search.svg"
@@ -171,6 +156,7 @@
         </div>
         <h2 class="total-recipes">recettes</h2>
       </section>
+      <div class="tag-container">TAGS</div>
       <!--    <div class="container-fluid selected-items">-->
       <!--        <div class="row">-->
       <!--            <div class="list-items">-->
@@ -191,7 +177,7 @@
       <!--            </div>-->
       <!--        </div>-->
       <!--    </div>-->
-      <section class="container-fluid gallery row"></section>
+      <section class="container-fluid recipes-gallery row"></section>
     </main>
     <script type="module" src="./src/scripts/index.js"></script>
   </body>
