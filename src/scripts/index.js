@@ -4,6 +4,7 @@ import { searchRecipes } from './utils/mainFilter.js';
 import { dropdownFilter } from './templates/DropdownFilter.js';
 import { displayCleanIcon, resetMainFilter } from './utils/cleanInputSearch.js';
 import { displayRecipesCount } from './utils/displayRecipesCount.js';
+import {getIngredientsOptions} from "./utils/getFilterItems.js";
 
 document.addEventListener('DOMContentLoaded', () => {
   init();
@@ -13,4 +14,9 @@ export const init = () => {
   displayRecipesCount();
   resetMainFilter();
   dropdownFilter();
+  populateAllDropdowns();
 };
+
+function populateAllDropdowns() {
+  getIngredientsOptions();
+}

@@ -55,10 +55,10 @@ export function updateListElement(listElement, setItems, itemType) {
 
   // Create li element and append it on the appropriate dropdown
   sortedItems.forEach((item) => {
-    const li = document.createElement('li');
-    li.textContent = item;
-    li.setAttribute('data-type', itemType);
+    const $li = document.createElement('li');
+    $li.textContent = item;
+    $li.setAttribute('data-type', itemType);
 
-    listElement.appendChild(li)
+    listElement.appendChild($li)
   })
 }

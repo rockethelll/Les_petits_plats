@@ -124,8 +124,8 @@ header {
 .dropdown-search {
   display: none;
   position: absolute;
-  height: 315px;
   width: 195px;
+  border-radius: 0 0 11px 11px;
   background: var(--color-white);
 }
 
@@ -161,11 +161,13 @@ header {
 
 .show {
   display: block;
-  height: 315px;
+  max-height: 315px;
   z-index: 10;
   transition: all 0.3s ease-in-out;
   padding-top: -10px;
   box-shadow: 0 -10px var(--color-white);
+  overflow: hidden;
+  overflow-y: auto;
 }
 
 .total-recipes {
