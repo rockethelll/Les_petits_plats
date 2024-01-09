@@ -1,6 +1,6 @@
 import { displayRecipesCount } from './displayRecipesCount.js';
-import {updateRecipeSection} from './mainFilter.js';
-import {recipes} from "../../data/recipes.js";
+import { updateRecipeSection } from './mainFilter.js';
+import { recipes } from '../../data/recipes.js';
 
 const $inputSearch = document.getElementById('main-search');
 const $clearInputBtn = document.querySelector('.clean-search');

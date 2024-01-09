@@ -2,7 +2,7 @@ import { recipes } from '../../data/recipes.js';
 import { RecipesFactory } from '../factories/RecipesFactory.js';
 import { displayRecipesCount } from './displayRecipesCount.js';
 import { displayCleanIcon } from './cleanInputSearch.js';
-import { updateListOptions} from "../templates/dropdownElements.js";
+import { updateListOptions } from './handleDropdown.js';
 
 export let currentSearchQuery = '';
 
@@ -29,7 +29,7 @@ export function searchRecipes(query, recipesToFilter = recipes) {
       matchedRecipes.push(recipe);
     }
   });
-  console.info(matchedRecipes.length, "recettes qui matchent");
+  console.info(matchedRecipes.length, 'recettes qui matchent');
   return matchedRecipes;
 }
 
