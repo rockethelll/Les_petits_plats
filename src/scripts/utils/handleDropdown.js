@@ -1,7 +1,6 @@
 import { capitalizeFirstLetter } from './capitalizeFirstLetter.js';
 
 // Update dropdown list based on the matched recipes in main search
-
 export function updateListOptions(matchedRecipes) {
   // Create store set with unique values
   const ingredientsSet = new Set();
@@ -59,6 +58,6 @@ export function updateListElement(listElement, setItems, itemType) {
     $li.textContent = item;
     $li.setAttribute('data-type', itemType);
 
-    listElement.appendChild($li)
-  })
+    listElement.appendChild($li);
+  });
 }
