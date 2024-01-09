@@ -2,6 +2,7 @@ import { recipes } from '../../data/recipes.js';
 import { RecipesFactory } from '../factories/RecipesFactory.js';
 import { displayRecipesCount } from './displayRecipesCount.js';
 import { displayCleanIcon } from './cleanInputSearch.js';
+import { updateListOptions} from "../templates/dropdownElements.js";
 
 export let currentSearchQuery = '';
 
@@ -54,7 +55,8 @@ export function updateRecipeSection(matchedRecipes) {
       $recipeSection.appendChild(recipeCard);
     });
   }
-  displayRecipesCount();
+  displayRecipesCount(matchedRecipes);
+  updateListOptions(matchedRecipes);
 }
 
 export function filteredRecipes() {

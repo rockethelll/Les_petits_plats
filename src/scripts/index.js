@@ -12,6 +12,5 @@ document.addEventListener('DOMContentLoaded', () => {
 export const init = () => {
   displayRecipesCount();
   resetMainFilter();
-  // resetFilter();
-  // dropdownFilter();
+  dropdownFilter();
 };
