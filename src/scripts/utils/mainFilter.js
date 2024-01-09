@@ -1,14 +1,15 @@
 import { recipes } from '../../data/recipes.js';
 import { RecipesFactory } from '../factories/RecipesFactory.js';
+import { displayRecipesCount } from './displayRecipesCount.js';
+import { displayCleanIcon } from './cleanInputSearch.js';
 
 export let currentSearchQuery = '';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const mainSearch = document.getElementById('main-search');
-  const tagContainer = document.querySelector('.tag-container');
-  mainSearch.addEventListener('input', () => {
-    currentSearchQuery = mainSearch.value.trim().toLowerCase();
-    console.log(currentSearchQuery);
+  const $mainSearch = document.getElementById('main-search');
+  const $tagContainer = document.querySelector('.tag-container');
+  $mainSearch.addEventListener('input', () => {
+    currentSearchQuery = $mainSearch.value.trim().toLowerCase();
     filteredRecipes();
   });
 });
@@ -27,7 +28,7 @@ export function searchRecipes(query, recipesToFilter = recipes) {
       matchedRecipes.push(recipe);
     }
   });
-
+  console.info(matchedRecipes.length, "recettes qui matchent");
   return matchedRecipes;
 }
 
@@ -36,28 +37,32 @@ export function updateRecipeSection(matchedRecipes) {
   if (!matchedRecipes) {
     console.error('matchedRecipes is undefined');
   }
-  const recipeSection = document.querySelector('.recipes-gallery');
-  recipeSection.textContent = '';
+  const $recipeSection = document.querySelector('.recipes-gallery');
+  $recipeSection.textContent = '';
 
   //Display message if no recipe is found
   if (matchedRecipes.length === 0) {
-    const errorMessages = document.createElement('p');
-    errorMessages.classList.add('error-message');
-    errorMessages.textContent =
+    const $errorMessages = document.createElement('div');
+    $errorMessages.classList.add('error-message');
+    $errorMessages.textContent =
       'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.';
-    recipeSection.appendChild(errorMessages);
+    $recipeSection.appendChild($errorMessages);
   } else {
     // Display the matched recipes
     matchedRecipes.forEach((recipe) => {
       const recipeCard = new RecipesFactory(recipe).generateElement();
-      recipeSection.appendChild(recipeCard);
+      $recipeSection.appendChild(recipeCard);
     });
   }
+  displayRecipesCount();
 }
 
 export function filteredRecipes() {
   let filteredRecipes = recipes;
 
+  if (currentSearchQuery && currentSearchQuery.length > 0) {
+    displayCleanIcon();
+  }
   if (currentSearchQuery && currentSearchQuery.length >= 3) {
     filteredRecipes = searchRecipes(currentSearchQuery, filteredRecipes);
   }

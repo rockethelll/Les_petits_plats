@@ -3,6 +3,7 @@
 
 main {
   margin: 0 100px;
+  min-height: 60dvh;
 }
 
 /*--------*/
@@ -71,7 +72,8 @@ header {
 
 .header__search .clean-search {
   margin-right: 25px;
-  display: none;
+  /*display: none;*/
+  visibility: hidden;
   cursor: pointer;
 }
 
@@ -93,7 +95,7 @@ header {
   justify-content: space-between;
   align-items: center;
   height: 55px;
-  margin: 30px 0 200px;
+  margin: 30px 0 20px;
 }
 
 .filters__container {
@@ -177,12 +179,46 @@ header {
   margin-top: 70px;
   font-size: 20px;
 }
-.errorMessage {
+
+.error-message {
   font-family: var(--color-secondary);
   font-size: 22px;
+  padding: 0 !important;
   margin-bottom: 40px;
   width: 1440px;
   text-align: center;
+}
+
+/*------*/
+/* Tags */
+/*------*/
+
+.tag-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  height: 70px;
+}
+
+.tag-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  background-color: var(--color-tertiary);
+  margin-right: 50px;
+  border-radius: 10px;
+  padding: 17px 18px;
+}
+
+.tag-item p {
+  padding-right: 60px;
+  margin-bottom: 0;
+}
+
+.tag-item svg {
+  cursor: pointer;
 }
 
 /*-------*/
@@ -266,6 +302,9 @@ main .container-fluid {
 @media screen and (max-width: 1024px) {
   main {
     margin: 0 70px;
+  }
+  .error-message {
+    font-size: 18px;
   }
 }
 

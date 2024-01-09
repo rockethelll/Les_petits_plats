@@ -2,21 +2,16 @@ import { recipes } from '../data/recipes.js';
 import { RecipesFactory } from './factories/RecipesFactory.js';
 import { searchRecipes } from './utils/mainFilter.js';
 import { dropdownFilter } from './templates/DropdownFilter.js';
-import { cleanSearch, resetFilter } from './utils/cleanInputSearch.js';
+import { displayCleanIcon, resetMainFilter } from './utils/cleanInputSearch.js';
+import { displayRecipesCount } from './utils/displayRecipesCount.js';
 
-const btnReset = document.querySelector('.clean-search');
-btnReset.addEventListener('click', resetFilter);
+document.addEventListener('DOMContentLoaded', () => {
+  init();
+});
 
-const ingredientsContainer = document.querySelector('.ingredients-container');
-const ustensilsContainer = document.querySelector('.ustensils-container');
-
-const init = async () => {
-  resetFilter();
-  cleanSearch();
-  dropdownFilter();
-  // filterByName(recipes)
-  // createDropdown('Ingredients', getUniqueAndSortedIngredients(recipes), ingredientsContainer)
-  // createDropdown('Appareils', getUniqueAndSortedAppliances(recipes), ustensilsContainer)
+export const init = () => {
+  displayRecipesCount();
+  resetMainFilter();
+  // resetFilter();
+  // dropdownFilter();
 };
-
-init();
