@@ -33,7 +33,7 @@ export function searchByTags() {
           if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
         }
-        case 'appareil': {
+        case 'appliance': {
           if (recipe.appliance.trim().toLowerCase() !== tagValue) {
             allTagsFound = false;
           }

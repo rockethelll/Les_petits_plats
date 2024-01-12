@@ -40,22 +40,22 @@ export function getIngredientsOptions() {
 // Get appareils options for dropdown menu
 export function getAppareilsOptions() {
   // Create new set to store appareils
-  let appareilsSet = new Set();
+  let appliancesSet = new Set();
 
   // Add all appareils from all recipes
   recipes.forEach((recipe) => {
-    appareilsSet.add(recipe.appliance.toLowerCase());
+    appliancesSet.add(recipe.appliance.toLowerCase());
   });
 
   // Convert the set to a sorted array
-  appareilsSet = new Set(
-    [...appareilsSet]
+  appliancesSet = new Set(
+    [...appliancesSet]
       .map(capitalizeFirstLetter)
       .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
   );
 
   // Call the function to populate appareils dropdown
-  populateDropdown('#appareils-list', appareilsSet, 'appareil');
+  populateDropdown('#appareils-list', appliancesSet, 'appliance');
 }
 
 // Get ustensils options for dropdown menu
