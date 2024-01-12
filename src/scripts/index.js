@@ -26,7 +26,7 @@ export const init = () => {
   populateAllDropdowns();
 };
 
-function populateAllDropdowns() {
+export function populateAllDropdowns() {
   getIngredientsOptions();
   getAppareilsOptions();
   getUstensilsOptions();

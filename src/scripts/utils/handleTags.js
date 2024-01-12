@@ -1,4 +1,7 @@
 import { searchByTags } from './searchTag.js';
+import {updateListElement} from "./handleDropdown.js";
+import {updateRecipeSection} from "./mainFilter.js";
+import {recipes} from "../../data/recipes.js";
 
 const addedTags = new Set();
 
@@ -9,9 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const type = li.dataset.type;
       if (li.tagName === 'LI' && !li.classList.contains('selected')) {
         addTag(li.textContent, type);
+        searchByTags();
       }
-      searchByTags();
-      console.log(searchByTags())
     });
   });
 });
@@ -35,6 +37,20 @@ export function addTag(content, type) {
   $tagContainer.appendChild($tag);
 
   $tag.dataset.type = type;
+  $tag.addEventListener('click', () => {
+    removeTag($tag, content, type);
+  })
 
   console.log('addedTags', addedTags);
+}
+
+
+export function removeTag(tag, content, type) {
+  tag.remove();
+  addedTags.delete(content);
+  updateListElement();
+  updateRecipeSection(recipes);
+  searchByTags();
+  console.log('addedTags', addedTags);
+
 }

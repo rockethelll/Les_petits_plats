@@ -20,7 +20,7 @@ export function searchByTags() {
   recipes.forEach((recipe) => {
     let allTagsFound = true;
 
-    // Check each selected tag to see if it is found int the current recipe
+    // Check each selected tag to see if it is found in the current recipe
     $selectedTags.forEach((selectedTag) => {
       let tagType = selectedTag.dataset.type;
       let tagValue = selectedTag.textContent.trim().toLowerCase();
