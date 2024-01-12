@@ -30,7 +30,6 @@ export class RecipesFactory {
 
     const $cardElement = document.createElement('div');
     $cardElement.classList.add('card');
-    $cardElement.setAttribute('data-id', `${this.id}`);
 
     const $cardImage = document.createElement('img');
     $cardImage.src = `./assets/images/${this.image}`;
@@ -104,9 +103,9 @@ export class RecipesFactory {
   }
 }
 
-const gallerySection = document.querySelector('.recipes-gallery');
+const $gallerySection = document.querySelector('.recipes-gallery');
 recipes.forEach((recipe) => {
   const card = new RecipesFactory(recipe);
   const $recipeCard = card.generateElement();
-  gallerySection.appendChild($recipeCard);
+  $gallerySection.appendChild($recipeCard);
 });

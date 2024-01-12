@@ -170,6 +170,23 @@ header {
   overflow-y: auto;
 }
 
+.dropdown-search .dropdown-items {
+  width: 100%;
+  padding: 0;
+}
+
+.dropdown-items li {
+  padding: 8px 16px;
+  cursor: pointer;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.dropdown-items li:hover {
+  background-color: var(--color-tertiary);
+}
+
 .total-recipes {
   font-size: 21px;
   margin-right: 25px;
@@ -203,7 +220,7 @@ header {
   height: 70px;
 }
 
-.tag-item {
+.tag {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -214,13 +231,16 @@ header {
   padding: 17px 18px;
 }
 
-.tag-item p {
+.tag p {
   padding-right: 60px;
   margin-bottom: 0;
 }
 
-.tag-item svg {
+.tag img {
   cursor: pointer;
+  filter: brightness(255) invert(100%);
+  height: 14px;
+  width: 14px;
 }
 
 /*-------*/

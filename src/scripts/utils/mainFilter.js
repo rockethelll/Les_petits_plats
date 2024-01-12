@@ -3,6 +3,8 @@ import { RecipesFactory } from '../factories/RecipesFactory.js';
 import { displayRecipesCount } from './displayRecipesCount.js';
 import { displayCleanIcon } from './cleanInputSearch.js';
 import { updateListOptions } from './handleDropdown.js';
+import { filteredRecipesState } from './searchTag.js';
+import { searchByTags } from './searchTag.js';
 
 export let currentSearchQuery = '';
 
@@ -11,7 +13,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const $tagContainer = document.querySelector('.tag-container');
   $mainSearch.addEventListener('input', () => {
     currentSearchQuery = $mainSearch.value.trim().toLowerCase();
-    filteredRecipes();
+    applyFilters();
+  });
+
+  // Add event listener to the tag container to listen for changes
+  $tagContainer.addEventListener('change', () => {
+    // Update the filtered recipes by tags
+    let filteredRecipes = searchByTags();
+    if (filteredRecipes) {
+      filteredRecipesState.filteredRecipesByTags = filteredRecipes;
+    }
+
+    // Check if the search query is valid
+    if (currentSearchQuery && currentSearchQuery.length >= 3) {
+      // Apply the search query to the filtered recipes
+      filteredRecipes = searchRecipes(currentSearchQuery, filteredRecipes);
+    }
+
+    // Update the recipe section with the filtered recipes
+    updateRecipeSection(filteredRecipes);
   });
 });
 
@@ -59,15 +79,20 @@ export function updateRecipeSection(matchedRecipes) {
   updateListOptions(matchedRecipes);
 }
 
-export function filteredRecipes() {
-  let filteredRecipes = recipes;
+export function applyFilters() {
+  let recipesToDisplay = recipes;
+
+  // First apply the tag filter if necessary
+  if (filteredRecipesState.filteredRecipesByTags.length > 0) {
+    recipesToDisplay = filteredRecipesState.filteredRecipesByTags;
+  }
 
   if (currentSearchQuery && currentSearchQuery.length > 0) {
     displayCleanIcon();
   }
   if (currentSearchQuery && currentSearchQuery.length >= 3) {
-    filteredRecipes = searchRecipes(currentSearchQuery, filteredRecipes);
+    recipesToDisplay = searchRecipes(currentSearchQuery, recipesToDisplay);
   }
   // Update the recipe section with the filtered recipes
-  updateRecipeSection(filteredRecipes);
+  updateRecipeSection(recipesToDisplay);
 }

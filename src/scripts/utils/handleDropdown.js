@@ -1,30 +1,25 @@
 import { capitalizeFirstLetter } from './capitalizeFirstLetter.js';
 
-// Update dropdown list based on the matched recipes in main search
+// Function to update dropdown lists based on the recipes that matched the search criteria
 export function updateListOptions(matchedRecipes) {
-  // Create store set with unique values
+  // Create sets to store unique ingredient, utensil, and appliance values.
   const ingredientsSet = new Set();
-  const appareilsSet = new Set();
   const ustensilesSet = new Set();
+  const appareilsSet = new Set();
 
-  // Iterate on each recipe that matched the search
+  // Iterate over each recipe that matched the search.
   matchedRecipes.forEach((recipe) => {
-    // Add ingredients from the recipe to the ingredientsSet
+    // Add each ingredient from the recipe to the ingredients set.
     recipe.ingredients.forEach((ingredient) => {
       ingredientsSet.add(ingredient.ingredient.toLowerCase());
     });
-
-    // Add appareils from the recipe to the appareilsSet
-    appareilsSet.add(recipe.appliance.toLowerCase());
-
-    // Add ustensils from the recipe to the ustensilsSet
-    recipe.ustensils.forEach((ustensil) => {
-      ustensilesSet.add(ustensil.toLowerCase());
+    // Add each utensil from the recipe to the utensils set
+    recipe.ustensils.forEach((ustensiles) => {
+      ustensilesSet.add(ustensiles.toLowerCase());
     });
+    // Add the appliance from the recipe to the appliances set
+    appareilsSet.add(recipe.appliance.toLowerCase());
   });
-  console.log('ingerdientsSet', ingredientsSet);
-  console.log('appareilsSet', appareilsSet);
-  console.log('ustensilesSet', ustensilesSet);
 
   // Call a function to update the UI list element for each category
   updateListElement(
@@ -33,31 +28,40 @@ export function updateListOptions(matchedRecipes) {
     'ingredient',
   );
   updateListElement(
-    document.getElementById('appareils-list'),
-    appareilsSet,
-    'appliance',
-  );
-  updateListElement(
     document.getElementById('ustensiles-list'),
     ustensilesSet,
     'ustensil',
   );
+  updateListElement(
+    document.getElementById('appareils-list'),
+    appareilsSet,
+    'appliance',
+  );
+  console.log(ingredientsSet, ustensilesSet, appareilsSet);
 }
 
-export function updateListElement(listElement, setItems, itemType) {
+// Update the dropdown list with the elements of the matched recipes
+export function updateListElement(listElement, itemsSet, itemType) {
+  if (!listElement) {
+    return;
+  }
+
   listElement.textContent = '';
 
-  // Convert setItems to an array, sort it and capitalize the first letter
-  const sortedItems = Array.from(setItems)
+  // Convert itemsSet to an array, sort it, and capitalize the first letter of each item
+  const sortedItems = Array.from(itemsSet)
     .map(capitalizeFirstLetter)
     .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
 
-  // Create li element and append it on the appropriate dropdown
+  // Create and append list items (li elements) for each item in the sorted items list
   sortedItems.forEach((item) => {
-    const $li = document.createElement('li');
-    $li.textContent = item;
-    $li.setAttribute('data-type', itemType);
+    const liElement = document.createElement('li');
+    liElement.textContent = item;
 
-    listElement.appendChild($li);
+    // Add data-type attribute
+    liElement.setAttribute('data-type', itemType);
+
+    // Add the created list item to the dropdown list
+    listElement.appendChild(liElement);
   });
 }

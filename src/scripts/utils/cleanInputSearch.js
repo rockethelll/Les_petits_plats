@@ -25,3 +25,12 @@ $clearInputBtn.addEventListener('click', () => {
   updateRecipeSection(recipes);
   displayRecipesCount();
 });
+
+export function clearSearchDropdownFields(inputIds) {
+  inputIds.forEach((id) => {
+    const $inputElement = document.getElementById(id);
+    if ($inputElement) {
+      $inputElement.value = '';
+    }
+  });
+}
