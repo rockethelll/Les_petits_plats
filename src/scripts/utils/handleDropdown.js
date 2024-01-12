@@ -37,7 +37,6 @@ export function updateListOptions(matchedRecipes) {
     appareilsSet,
     'appliance',
   );
-  console.log(ingredientsSet, ustensilesSet, appareilsSet);
 }
 
 // Update the dropdown list with the elements of the matched recipes

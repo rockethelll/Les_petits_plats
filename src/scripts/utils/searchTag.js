@@ -5,7 +5,7 @@ export let filteredRecipesState = {
   filteredRecipesByTags: [],
 };
 
-// filter recipes vased on selected tags
+// filter recipes based on selected tags
 export function searchByTags() {
   let $selectedTags = document.querySelectorAll('.tag');
   let recipesToDisplay = [];
@@ -26,14 +26,14 @@ export function searchByTags() {
       let tagValue = selectedTag.textContent.trim().toLowerCase();
 
       switch (tagType) {
-        case 'ingredients': {
+        case 'ingredient': {
           let ingredientNames = recipe.ingredients.map((ing) =>
             ing.ingredient.trim().toLowerCase(),
           );
-          if (ingredientNames.includes(tagValue)) allTagsFound = false;
+          if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
         }
-        case 'appliances': {
+        case 'appareil': {
           if (recipe.appliance.trim().toLowerCase() !== tagValue) {
             allTagsFound = false;
           }

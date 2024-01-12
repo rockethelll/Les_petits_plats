@@ -2,13 +2,18 @@ import { recipes } from '../data/recipes.js';
 import { RecipesFactory } from './factories/RecipesFactory.js';
 import { searchRecipes } from './utils/mainFilter.js';
 import { dropdownFilter } from './templates/DropdownFilter.js';
-import {clearSearchDropdownFields, displayCleanIcon, resetMainFilter} from './utils/cleanInputSearch.js';
+import {
+  clearSearchDropdownFields,
+  displayCleanIcon,
+  resetMainFilter,
+} from './utils/cleanInputSearch.js';
 import { displayRecipesCount } from './utils/displayRecipesCount.js';
 import {
   getAppareilsOptions,
   getIngredientsOptions,
   getUstensilsOptions,
 } from './utils/getFilterItems.js';
+import {} from './utils/handleTags.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   init();

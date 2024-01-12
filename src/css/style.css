@@ -163,7 +163,6 @@ header {
   display: block;
   max-height: 315px;
   z-index: 10;
-  transition: all 0.3s ease-in-out;
   padding-top: -10px;
   box-shadow: 0 -10px var(--color-white);
   overflow: hidden;
@@ -217,7 +216,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   margin-bottom: 20px;
-  height: 70px;
+  min-height: 70px;
 }
 
 .tag {
@@ -227,6 +226,7 @@ header {
   height: 55px;
   background-color: var(--color-tertiary);
   margin-right: 50px;
+  margin-bottom: 20px;
   border-radius: 10px;
   padding: 17px 18px;
 }
