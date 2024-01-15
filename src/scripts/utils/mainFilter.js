@@ -40,7 +40,8 @@ export function searchRecipes(query, recipesToFilter = recipes) {
   const searchTerms = query.toLowerCase().split(' ');
   const matchedRecipes = [];
 
-  recipesToFilter.forEach((recipe) => {
+  for (let i = 0; i < recipesToFilter.length; i++) {
+    const recipe = recipesToFilter[i];
     const searchableText = `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${recipe.ingredients
       .map((ingredient) => ingredient.ingredient.toLowerCase())
       .join(' ')}`;
@@ -48,7 +49,8 @@ export function searchRecipes(query, recipesToFilter = recipes) {
     if (searchTerms.every((term) => searchableText.includes(term))) {
       matchedRecipes.push(recipe);
     }
-  });
+  }
+
   return matchedRecipes;
 }
 
