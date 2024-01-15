@@ -1,16 +1,16 @@
-import { recipes } from '../../data/recipes.js';
-import { capitalizeFirstLetter } from './capitalizeFirstLetter.js';
+import { recipes } from "../../data/recipes.min.js";
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter.min.js";
 
 // Populate dropdown filters
 function populateDropdown(ulDropdown, itemsSet, type) {
   const $ulElement = document.querySelector(ulDropdown);
-  $ulElement.textContent = '';
+  $ulElement.textContent = "";
 
   // Create a new list item and append it to the ul, for each item in the item set
   itemsSet.forEach((item) => {
-    const $li = document.createElement('li');
+    const $li = document.createElement("li");
     $li.textContent = item;
-    $li.setAttribute('data-type', type);
+    $li.setAttribute("data-type", type);
     $ulElement.appendChild($li);
   });
 }
@@ -31,10 +31,10 @@ export function getIngredientsOptions() {
   ingredientsSet = new Set(
     [...ingredientsSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
   );
   // Call the function to populate ingredients dropdown
-  populateDropdown('#ingredients-list', ingredientsSet, 'ingredient');
+  populateDropdown("#ingredients-list", ingredientsSet, "ingredient");
 }
 
 // Get appareils options for dropdown menu
@@ -51,11 +51,11 @@ export function getAppareilsOptions() {
   appliancesSet = new Set(
     [...appliancesSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
   );
 
   // Call the function to populate appareils dropdown
-  populateDropdown('#appareils-list', appliancesSet, 'appliance');
+  populateDropdown("#appareils-list", appliancesSet, "appliance");
 }
 
 // Get ustensils options for dropdown menu
@@ -74,9 +74,9 @@ export function getUstensilsOptions() {
   ustensilsSet = new Set(
     [...ustensilsSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
   );
 
   // Call the function to populate ustensils dropdown
-  populateDropdown('#ustensiles-list', ustensilsSet, 'ustensil');
+  populateDropdown("#ustensiles-list", ustensilsSet, "ustensil");
 }

@@ -1,5 +1,5 @@
-import { recipes } from '../../data/recipes.js';
-import { applyFilters } from './mainFilter.js';
+import { recipes } from "../../data/recipes.min.js";
+import { applyFilters } from "./mainFilter.min.js";
 
 export let filteredRecipesState = {
   filteredRecipesByTags: [],
@@ -7,7 +7,7 @@ export let filteredRecipesState = {
 
 // filter recipes based on selected tags
 export function searchByTags() {
-  let $selectedTags = document.querySelectorAll('.tag');
+  let $selectedTags = document.querySelectorAll(".tag");
   let recipesToDisplay = [];
 
   if ($selectedTags.length === 0) {
@@ -26,20 +26,20 @@ export function searchByTags() {
       let tagValue = selectedTag.textContent.trim().toLowerCase();
 
       switch (tagType) {
-        case 'ingredient': {
+        case "ingredient": {
           let ingredientNames = recipe.ingredients.map((ing) =>
             ing.ingredient.trim().toLowerCase(),
           );
           if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
         }
-        case 'appliance': {
+        case "appliance": {
           if (recipe.appliance.trim().toLowerCase() !== tagValue) {
             allTagsFound = false;
           }
           break;
         }
-        case 'ustensil': {
+        case "ustensil": {
           let isUstensilFound = recipe.ustensils.some(
             (ustensil) => ustensil.trim().toLowerCase() === tagValue,
           );

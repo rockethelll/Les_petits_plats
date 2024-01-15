@@ -1,5 +1,5 @@
-import { recipes } from '../../data/recipes.js';
-import { capitalizeFirstLetter } from '../utils/capitalizeFirstLetter.js';
+import { recipes } from "../../data/recipes.min.js";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter.min.js";
 
 export class RecipesFactory {
   constructor({
@@ -25,63 +25,63 @@ export class RecipesFactory {
   }
 
   generateElement() {
-    const $cardContainer = document.createElement('div');
-    $cardContainer.classList.add('col-12', 'col-md-6', 'col-lg-4', 'd-flex');
+    const $cardContainer = document.createElement("div");
+    $cardContainer.classList.add("col-12", "col-md-6", "col-lg-4", "d-flex");
 
-    const $cardElement = document.createElement('div');
-    $cardElement.classList.add('card');
+    const $cardElement = document.createElement("div");
+    $cardElement.classList.add("card");
 
-    const $cardImage = document.createElement('img');
+    const $cardImage = document.createElement("img");
     $cardImage.src = `./assets/images/${this.image}`;
-    $cardImage.classList.add('card-img-top');
+    $cardImage.classList.add("card-img-top");
     $cardImage.alt = this.name;
 
-    const $badgeSpan = document.createElement('span');
+    const $badgeSpan = document.createElement("span");
     $badgeSpan.classList.add(
-      'badge',
-      'text-dark',
-      'd-flex',
-      'align-items-center',
-      'justify-content-center',
+      "badge",
+      "text-dark",
+      "d-flex",
+      "align-items-center",
+      "justify-content-center",
     );
     $badgeSpan.textContent = `${this.time}min`;
 
-    const $cardBody = document.createElement('div');
-    $cardBody.classList.add('card-body');
+    const $cardBody = document.createElement("div");
+    $cardBody.classList.add("card-body");
 
-    const $cardTitle = document.createElement('h3');
-    $cardTitle.classList.add('card-title');
+    const $cardTitle = document.createElement("h3");
+    $cardTitle.classList.add("card-title");
     $cardTitle.textContent = this.name;
 
-    const $recetteP = document.createElement('p');
-    $recetteP.classList.add('recette');
-    $recetteP.textContent = 'RECETTE';
+    const $recetteP = document.createElement("p");
+    $recetteP.classList.add("recette");
+    $recetteP.textContent = "RECETTE";
 
-    const $cardText = document.createElement('p');
-    $cardText.classList.add('card-text');
+    const $cardText = document.createElement("p");
+    $cardText.classList.add("card-text");
     $cardText.textContent = this.description;
 
-    const $ingredientsP = document.createElement('p');
-    $ingredientsP.classList.add('ingredients');
-    $ingredientsP.textContent = 'INGRÉDIENTS';
+    const $ingredientsP = document.createElement("p");
+    $ingredientsP.classList.add("ingredients");
+    $ingredientsP.textContent = "INGRÉDIENTS";
 
-    const $cardIngredients = document.createElement('div');
-    $cardIngredients.classList.add('card-ingredients', 'row', 'row-cols-2');
+    const $cardIngredients = document.createElement("div");
+    $cardIngredients.classList.add("card-ingredients", "row", "row-cols-2");
 
     this.ingredients.forEach((ingredient) => {
-      const $ingredientQuantity = document.createElement('div');
-      $ingredientQuantity.classList.add('ingredient-quantity', 'col');
+      const $ingredientQuantity = document.createElement("div");
+      $ingredientQuantity.classList.add("ingredient-quantity", "col");
 
-      const $ingredientNameP = document.createElement('p');
+      const $ingredientNameP = document.createElement("p");
       $ingredientNameP.textContent = capitalizeFirstLetter(
         ingredient.ingredient,
       );
 
-      const $quantityP = document.createElement('p');
-      $quantityP.classList.add('quantity');
+      const $quantityP = document.createElement("p");
+      $quantityP.classList.add("quantity");
       $quantityP.textContent = `${
-        ingredient.quantity ? ingredient.quantity : ''
-      }${ingredient.unit ? ingredient.unit : ''}`;
+        ingredient.quantity ? ingredient.quantity : ""
+      }${ingredient.unit ? ingredient.unit : ""}`;
 
       $ingredientQuantity.appendChild($ingredientNameP);
       $ingredientQuantity.appendChild($quantityP);
@@ -103,7 +103,7 @@ export class RecipesFactory {
   }
 }
 
-const $gallerySection = document.querySelector('.recipes-gallery');
+const $gallerySection = document.querySelector(".recipes-gallery");
 recipes.forEach((recipe) => {
   const card = new RecipesFactory(recipe);
   const $recipeCard = card.generateElement();

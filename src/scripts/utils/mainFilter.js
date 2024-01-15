@@ -1,23 +1,23 @@
-import { recipes } from '../../data/recipes.js';
-import { RecipesFactory } from '../factories/RecipesFactory.js';
-import { displayRecipesCount } from './displayRecipesCount.js';
-import { displayCleanIcon } from './cleanInputSearch.js';
-import { updateListOptions } from './handleDropdown.js';
-import { filteredRecipesState } from './searchTag.js';
-import { searchByTags } from './searchTag.js';
+import { recipes } from "../../data/recipes.min.js";
+import { RecipesFactory } from "../factories/RecipesFactory.min.js";
+import { displayRecipesCount } from "./displayRecipesCount.min.js";
+import { displayCleanIcon } from "./cleanInputSearch.min.js";
+import { updateListOptions } from "./handleDropdown.min.js";
+import { filteredRecipesState } from "./searchTag.min.js";
+import { searchByTags } from "./searchTag.min.js";
 
-export let currentSearchQuery = '';
+export let currentSearchQuery = "";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const $mainSearch = document.getElementById('main-search');
-  const $tagContainer = document.querySelector('.tag-container');
-  $mainSearch.addEventListener('input', () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const $mainSearch = document.getElementById("main-search");
+  const $tagContainer = document.querySelector(".tag-container");
+  $mainSearch.addEventListener("input", () => {
     currentSearchQuery = $mainSearch.value.trim().toLowerCase();
     applyFilters();
   });
 
   // Add event listener to the tag container to listen for changes
-  $tagContainer.addEventListener('change', () => {
+  $tagContainer.addEventListener("change", () => {
     // Update the filtered recipes by tags
     let filteredRecipes = searchByTags();
     if (filteredRecipes) {
@@ -37,14 +37,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Search recipes by name, ingredients, or description
 export function searchRecipes(query, recipesToFilter = recipes) {
-  const searchTerms = query.toLowerCase().split(' ');
+  const searchTerms = query.toLowerCase().split(" ");
   const matchedRecipes = [];
 
   for (let i = 0; i < recipesToFilter.length; i++) {
     const recipe = recipesToFilter[i];
     const searchableText = `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${recipe.ingredients
       .map((ingredient) => ingredient.ingredient.toLowerCase())
-      .join(' ')}`;
+      .join(" ")}`;
 
     if (searchTerms.every((term) => searchableText.includes(term))) {
       matchedRecipes.push(recipe);
@@ -57,17 +57,17 @@ export function searchRecipes(query, recipesToFilter = recipes) {
 // Update the recipe section with the matched recipes
 export function updateRecipeSection(matchedRecipes) {
   if (!matchedRecipes) {
-    console.error('matchedRecipes is undefined');
+    console.error("matchedRecipes is undefined");
   }
-  const $recipeSection = document.querySelector('.recipes-gallery');
-  $recipeSection.textContent = '';
+  const $recipeSection = document.querySelector(".recipes-gallery");
+  $recipeSection.textContent = "";
 
   //Display message if no recipe is found
   if (matchedRecipes.length === 0) {
-    const $errorMessages = document.createElement('div');
-    $errorMessages.classList.add('error-message');
+    const $errorMessages = document.createElement("div");
+    $errorMessages.classList.add("error-message");
     $errorMessages.textContent =
-      'Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.';
+      "Aucune recette ne correspond à votre critère… vous pouvez chercher « tarte aux pommes », « poisson », etc.";
     $recipeSection.appendChild($errorMessages);
   } else {
     // Display the matched recipes

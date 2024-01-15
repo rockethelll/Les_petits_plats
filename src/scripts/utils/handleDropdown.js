@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from './capitalizeFirstLetter.js';
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter.min.js";
 
 // Function to update dropdown lists based on the recipes that matched the search criteria
 export function updateListOptions(matchedRecipes) {
@@ -23,19 +23,19 @@ export function updateListOptions(matchedRecipes) {
 
   // Call a function to update the UI list element for each category
   updateListElement(
-    document.getElementById('ingredients-list'),
+    document.getElementById("ingredients-list"),
     ingredientsSet,
-    'ingredient',
+    "ingredient",
   );
   updateListElement(
-    document.getElementById('ustensiles-list'),
+    document.getElementById("ustensiles-list"),
     ustensilesSet,
-    'ustensil',
+    "ustensil",
   );
   updateListElement(
-    document.getElementById('appareils-list'),
+    document.getElementById("appareils-list"),
     appareilsSet,
-    'appliance',
+    "appliance",
   );
 }
 
@@ -45,20 +45,20 @@ export function updateListElement(listElement, itemsSet, itemType) {
     return;
   }
 
-  listElement.textContent = '';
+  listElement.textContent = "";
 
   // Convert itemsSet to an array, sort it, and capitalize the first letter of each item
   const sortedItems = Array.from(itemsSet)
     .map(capitalizeFirstLetter)
-    .sort((a, b) => a.localeCompare(b, 'fr', { sensitivity: 'base' }));
+    .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
 
   // Create and append list items (li elements) for each item in the sorted items list
   sortedItems.forEach((item) => {
-    const liElement = document.createElement('li');
+    const liElement = document.createElement("li");
     liElement.textContent = item;
 
     // Add data-type attribute
-    liElement.setAttribute('data-type', itemType);
+    liElement.setAttribute("data-type", itemType);
 
     // Add the created list item to the dropdown list
     listElement.appendChild(liElement);

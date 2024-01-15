@@ -1,21 +1,21 @@
-import { recipes } from '../data/recipes.js';
-import { RecipesFactory } from './factories/RecipesFactory.js';
-import { searchRecipes } from './utils/mainFilter.js';
-import { dropdownFilter } from './templates/DropdownFilter.js';
+import { recipes } from "../data/recipes.min.js";
+import { RecipesFactory } from "./factories/RecipesFactory.min.js";
+import { searchRecipes } from "./utils/mainFilter.min.js";
+import { dropdownFilter } from "./templates/DropdownFilter.min.js";
 import {
   clearSearchDropdownFields,
   displayCleanIcon,
   resetMainFilter,
-} from './utils/cleanInputSearch.js';
-import { displayRecipesCount } from './utils/displayRecipesCount.js';
+} from "./utils/cleanInputSearch.min.js";
+import { displayRecipesCount } from "./utils/displayRecipesCount.min.js";
 import {
   getAppareilsOptions,
   getIngredientsOptions,
   getUstensilsOptions,
-} from './utils/getFilterItems.js';
-import {} from './utils/handleTags.js';
+} from "./utils/getFilterItems.min.js";
+import {} from "./utils/handleTags.min.js";
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
   init();
 });
 
@@ -35,8 +35,8 @@ export function populateAllDropdowns() {
 function clearInputsFields() {
   resetMainFilter();
   clearSearchDropdownFields([
-    'dropdownSearchIngredients',
-    'dropdownSearchUstensils',
-    'dropdownSearchAppareils',
+    "dropdownSearchIngredients",
+    "dropdownSearchUstensils",
+    "dropdownSearchAppareils",
   ]);
 }

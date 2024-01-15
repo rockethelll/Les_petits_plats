@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap');
-@import 'reset.css';
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Manrope:wght@300;400;500;600;700;800&display=swap");
+@import "reset.min.css";
 
 main {
   margin: 0 100px;
@@ -10,7 +10,7 @@ main {
 /* HEADER */
 /*--------*/
 header {
-  background: url('/assets/images/banner.webp') no-repeat center center/cover;
+  background: url("/assets/images/banner.webp") no-repeat center center/cover;
   height: 670px;
   position: relative;
   display: flex;
@@ -163,7 +163,6 @@ header {
   display: block;
   max-height: 315px;
   z-index: 10;
-  padding-top: -10px;
   box-shadow: 0 -10px var(--color-white);
   overflow: hidden;
   overflow-y: auto;
