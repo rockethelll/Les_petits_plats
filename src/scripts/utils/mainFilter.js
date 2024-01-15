@@ -49,7 +49,6 @@ export function searchRecipes(query, recipesToFilter = recipes) {
       matchedRecipes.push(recipe);
     }
   });
-  console.info(matchedRecipes.length, 'recettes qui matchent');
   return matchedRecipes;
 }
 

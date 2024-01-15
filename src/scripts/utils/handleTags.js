@@ -1,7 +1,7 @@
 import { searchByTags } from './searchTag.js';
-import {updateListElement} from "./handleDropdown.js";
-import {updateRecipeSection} from "./mainFilter.js";
-import {recipes} from "../../data/recipes.js";
+import { updateListElement } from './handleDropdown.js';
+import { updateRecipeSection } from './mainFilter.js';
+import { recipes } from '../../data/recipes.js';
 
 const addedTags = new Set();
 let selectedTags = { ingredient: [], appliance: [], ustensil: [] };
@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const type = li.dataset.type;
       if (li.tagName === 'LI' && !li.classList.contains('selected')) {
         addTag(li.textContent, type);
-      }
         searchByTags();
+      }
     });
   });
 });
@@ -24,7 +24,7 @@ export function addTag(content, type) {
   if (addedTags.has(content)) {
     return;
   }
-  
+
   // Create the tag element
   const $tagContainer = document.querySelector('.tag-container');
   const $tag = document.createElement('div');
@@ -43,12 +43,10 @@ export function addTag(content, type) {
   // Add an event listener to the tag for removing it
   $tag.addEventListener('click', () => {
     removeTag($tag, content, type);
-  })
+  });
   // Add the tag content to the appropriate array in the 'selectedTags' object
   selectedTags[type].push(content.toLowerCase());
-  console.log(selectedTags['ingredient'], selectedTags['appareil'], selectedTags['ustensil']);
 }
-
 
 export function removeTag(tag, content, type) {
   tag.remove();
@@ -58,13 +56,11 @@ export function removeTag(tag, content, type) {
   if (index > -1) {
     selectedTags[type].splice(index, 1);
   }
-  console.log(selectedTags['ingredient'], selectedTags['appareil'], selectedTags['ustensil']);
 
   updateListElement();
   updateRecipeSection(recipes);
   searchByTags();
 }
-
 
 document.addEventListener('DOMContentLoaded', () => {
   // Set up the filter functionality for each dropdown
@@ -73,9 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDropdownFilter('dropdownSearchAppareils', 'appareils-list');
 });
 
-
 // Function to enable live search for dropdown lists
-function setupDropdownFilter(inputId, listId) {
+export function setupDropdownFilter(inputId, listId) {
   const searchInput = document.getElementById(inputId);
   const itemList = document.getElementById(listId);
   // Add an 'input' event listener to the search field
