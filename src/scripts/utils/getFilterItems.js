@@ -31,7 +31,7 @@ export function getIngredientsOptions() {
   ingredientsSet = new Set(
     [...ingredientsSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }))
   );
   // Call the function to populate ingredients dropdown
   populateDropdown("#ingredients-list", ingredientsSet, "ingredient");
@@ -51,7 +51,7 @@ export function getAppareilsOptions() {
   appliancesSet = new Set(
     [...appliancesSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }))
   );
 
   // Call the function to populate appareils dropdown
@@ -74,7 +74,7 @@ export function getUstensilsOptions() {
   ustensilsSet = new Set(
     [...ustensilsSet]
       .map(capitalizeFirstLetter)
-      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })),
+      .sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }))
   );
 
   // Call the function to populate ustensils dropdown

@@ -28,7 +28,7 @@ export function searchByTags() {
       switch (tagType) {
         case "ingredient": {
           let ingredientNames = recipe.ingredients.map((ing) =>
-            ing.ingredient.trim().toLowerCase(),
+            ing.ingredient.trim().toLowerCase()
           );
           if (!ingredientNames.includes(tagValue)) allTagsFound = false;
           break;
@@ -41,7 +41,7 @@ export function searchByTags() {
         }
         case "ustensil": {
           let isUstensilFound = recipe.ustensils.some(
-            (ustensil) => ustensil.trim().toLowerCase() === tagValue,
+            (ustensil) => ustensil.trim().toLowerCase() === tagValue
           );
           if (!isUstensilFound) allTagsFound = false;
           break;

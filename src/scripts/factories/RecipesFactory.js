@@ -42,7 +42,7 @@ export class RecipesFactory {
       "text-dark",
       "d-flex",
       "align-items-center",
-      "justify-content-center",
+      "justify-content-center"
     );
     $badgeSpan.textContent = `${this.time}min`;
 
@@ -74,7 +74,7 @@ export class RecipesFactory {
 
       const $ingredientNameP = document.createElement("p");
       $ingredientNameP.textContent = capitalizeFirstLetter(
-        ingredient.ingredient,
+        ingredient.ingredient
       );
 
       const $quantityP = document.createElement("p");

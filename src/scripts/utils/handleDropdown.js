@@ -25,17 +25,17 @@ export function updateListOptions(matchedRecipes) {
   updateListElement(
     document.getElementById("ingredients-list"),
     ingredientsSet,
-    "ingredient",
+    "ingredient"
   );
   updateListElement(
     document.getElementById("ustensiles-list"),
     ustensilesSet,
-    "ustensil",
+    "ustensil"
   );
   updateListElement(
     document.getElementById("appareils-list"),
     appareilsSet,
-    "appliance",
+    "appliance"
   );
 }
 

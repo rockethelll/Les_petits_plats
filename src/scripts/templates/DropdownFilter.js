@@ -17,7 +17,7 @@ function setupDropdownFilter(buttonId) {
   const $chevronDown = $dropdownBtn.querySelector(".chevron-down");
   const $dropDownSearch = $dropdownBtn
     .closest(
-      ".filters__container__ingredients, .filters__container__appareils, .filters__container__ustensils",
+      ".filters__container__ingredients, .filters__container__appareils, .filters__container__ustensils"
     )
     .querySelector(".dropdown-search");
 
@@ -31,7 +31,7 @@ function setupDropdownFilter(buttonId) {
   });
 
   // Add event listener to the dropdown search to close it when the mouse leaves the dropdown
-  $dropDownSearch?.addEventListener("mouseleave", () => {
+  $dropDownSearch.addEventListener("mouseleave", () => {
     const $chevronUp = $dropdownBtn.querySelector(".chevron-up");
     const $chevronDown = $dropdownBtn.querySelector(".chevron-down");
     changeChevron($chevronUp, $chevronDown);
