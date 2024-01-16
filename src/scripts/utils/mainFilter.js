@@ -37,20 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Search recipes by name, ingredients, or description
 export function searchRecipes(query, recipesToFilter = recipes) {
-  const searchTerms = query.toLowerCase().split(" ");
+  const searchTerms = query.toLowerCase().split(' ');
   const matchedRecipes = [];
 
-  for (let i = 0; i < recipesToFilter.length; i++) {
-    const recipe = recipesToFilter[i];
+  recipesToFilter.forEach((recipe) => {
     const searchableText = `${recipe.name.toLowerCase()} ${recipe.description.toLowerCase()} ${recipe.ingredients
       .map((ingredient) => ingredient.ingredient.toLowerCase())
-      .join(" ")}`;
+      .join(' ')}`;
 
     if (searchTerms.every((term) => searchableText.includes(term))) {
       matchedRecipes.push(recipe);
     }
-  }
-
+  });
   return matchedRecipes;
 }
 
