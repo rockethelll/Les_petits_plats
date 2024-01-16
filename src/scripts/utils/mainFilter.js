@@ -1,10 +1,10 @@
-import { recipes } from "../../data/recipes.min.js";
-import { RecipesFactory } from "../factories/RecipesFactory.min.js";
-import { displayRecipesCount } from "./displayRecipesCount.min.js";
-import { displayCleanIcon } from "./cleanInputSearch.min.js";
-import { updateListOptions } from "./handleDropdown.min.js";
-import { filteredRecipesState } from "./searchTag.min.js";
-import { searchByTags } from "./searchTag.min.js";
+import { recipes } from "../../data/recipes.js";
+import { RecipesFactory } from "../factories/RecipesFactory.js";
+import { displayRecipesCount } from "./displayRecipesCount.js";
+import { displayCleanIcon } from "./cleanInputSearch.js";
+import { updateListOptions } from "./handleDropdown.js";
+import { filteredRecipesState } from "./searchTag.js";
+import { searchByTags } from "./searchTag.js";
 
 export let currentSearchQuery = "";
 

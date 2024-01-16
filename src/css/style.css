@@ -1,4 +1,4 @@
-@import "reset.min.css";
+@import "reset.css";
 
 main {
   margin: 0 100px;
@@ -71,7 +71,6 @@ header {
 
 .header__search .clean-search {
   margin-right: 25px;
-  /*display: none;*/
   visibility: hidden;
   cursor: pointer;
 }

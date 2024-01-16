@@ -1,7 +1,7 @@
-import { searchByTags } from "./searchTag.min.js";
-import { updateListElement } from "./handleDropdown.min.js";
-import { updateRecipeSection } from "./mainFilter.min.js";
-import { recipes } from "../../data/recipes.min.js";
+import { searchByTags } from "./searchTag.js";
+import { updateListElement } from "./handleDropdown.js";
+import { updateRecipeSection } from "./mainFilter.js";
+import { recipes } from "../../data/recipes.js";
 
 const addedTags = new Set();
 let selectedTags = { ingredient: [], appliance: [], ustensil: [] };

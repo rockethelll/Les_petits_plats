@@ -1,5 +1,5 @@
-import { recipes } from "../../data/recipes.min.js";
-import { capitalizeFirstLetter } from "./capitalizeFirstLetter.min.js";
+import { recipes } from "../../data/recipes.js";
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter.js";
 
 // Populate dropdown filters
 function populateDropdown(ulDropdown, itemsSet, type) {
