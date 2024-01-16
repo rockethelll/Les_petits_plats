@@ -1,5 +1,5 @@
-import { recipes } from "../../data/recipes.js";
-import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter.js";
+import { recipes } from "../../data/recipes.min.js";
+import { capitalizeFirstLetter } from "../utils/capitalizeFirstLetter.min.js";
 
 export class RecipesFactory {
   constructor({
