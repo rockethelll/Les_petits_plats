@@ -1,5 +1,5 @@
-import { recipes } from "../../data/recipes.js";
-import { applyFilters } from "./mainFilter.js";
+import { recipes } from "../../data/recipes.min.js";
+import { applyFilters } from "./mainFilter.min.js";
 
 export let filteredRecipesState = {
   filteredRecipesByTags: [],

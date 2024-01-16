@@ -1,4 +1,4 @@
-import { capitalizeFirstLetter } from "./capitalizeFirstLetter.js";
+import { capitalizeFirstLetter } from "./capitalizeFirstLetter.min.js";
 
 // Function to update dropdown lists based on the recipes that matched the search criteria
 export function updateListOptions(matchedRecipes) {
